@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart - LaunchHubTools</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <span>🚀 LaunchHubTools</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#tools">Tools</a>
+                <a href="cart.html" class="cart-icon">🛒 <span id="cartCount">0</span></a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="cart-section">
+        <div class="container">
+            <h1>Your Shopping Cart</h1>
+            <div id="cartItems"></div>
+            <div id="cartTotal" class="cart-total"></div>
+            <button id="checkoutBtn" class="btn-checkout" onclick="proceedToCheckout()">Proceed to Checkout</button>
+        </div>
+    </section>
+
+    <script src="cart.js"></script>
+    <script>
+        displayCart();
+    </script>
+</body>
+</html>
