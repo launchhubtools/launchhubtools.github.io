@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - LaunchHubTools</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://checkout.flutterwave.com/v3.js"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <span>🚀 LaunchHubTools</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#tools">Tools</a>
+                <a href="cart.html" class="cart-icon">🛒 <span id="cartCount">0</span></a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="checkout-section">
+        <div class="container">
+            <h1>Complete Your Purchase</h1>
+            <div class="checkout-box">
+                <div class="order-summary">
+                    <h2>Order Summary</h2>
+                    <div id="orderItems"></div>
+                    <div id="orderTotal" class="order-total"></div>
+                </div>
+                
+                <div class="payment-form">
+                    <h2>Payment Details</h2>
+                    <form id="paymentForm">
+                        <div class="form-group">
+                            <label>Card Number</label>
+                            <input type="text" placeholder="1234 5678 9012 3456" required>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Expiry Date</label>
+                                <input type="text" placeholder="MM/YY" required>
+                            </div>
+                            <div class="form-group">
+                                <label>CVV</label>
+                                <input type="text" placeholder="123" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label>Cardholder Name</label>
+                            <input type="text" placeholder="John Doe" required>
+                        </div>
+                        <button type="button" class="btn-pay" onclick="payWithFlutterwave()">Pay Now</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="cart.js"></script>
+    <script>
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+        function displayOrder() {
+            const orderItemsDiv = document.getElementById('orderItems');
+            let total = 0;
+            
+            if (cart.length === 0) {
+                orderItemsDiv.innerHTML = '<p>Your cart is empty. <a href="index.html">Browse tools</a></p>';
+                return;
+            }
+            
+            cart.forEach(item => {
+                const itemDiv = document.createElement('div');
+                itemDiv.className = 'order-item';
+                itemDiv.innerHTML = `
+                    <span>${item.name}</span>
+                    <span>$${item.price.toLocaleString()}</span>
+                `;
+                orderItemsDiv.appendChild(itemDiv);
+                total += item.price;
+            });
+
+            document.getElementById('orderTotal').innerHTML = `
+                <h3>Total: $${total.toLocaleString()}</h3>
+            `;
+        }
+
+        displayOrder();
+
+        function payWithFlutterwave() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let total = 0;
+            cart.forEach(item => {
+                total += item.price;
+            });
+
+            // YOUR FLUTTERWAVE KEYS - Replace with your actual keys
+            const FLUTTERWAVE_PUBLIC_KEY = 'FLWPUBK-3cb9a8fe1e8a429b66a98eda7607a897-X';
+            const FLUTTERWAVE_ENCRYPTION_KEY = '6daef8cd5aa69ffc31a2ce2a';
+
+            const txRef = `LH-${Date.now()}-${Math.floor(Math.random() * 1000)}`;
+
+            FlutterwaveCheckout({
+                public_key: FLUTTERWAVE_PUBLIC_KEY,
+                tx_ref: txRef,
+                amount: total,
+                currency: "USD",
+                payment_options: "card,mobilemoney,ussd",
+                customer: {
+                    email: "customer@example.com",
+                    name: "Customer",
+                },
+                customizations: {
+                    title: "LaunchHubTools",
+                    description: "Crowdfunding Promotion Tools",
+                    logo: "https://launchhutbooks.github.io/launchhubtools-simple/logo.png",
+                },
+                callback: function(response) {
+                    if (response.status === 'successful') {
+                        alert('✅ Payment successful! Thank you for your purchase.');
+                        localStorage.removeItem('cart');
+                        window.location.href = 'success.html';
+                    } else {
+                        alert('❌ Payment failed. Please try again.');
+                    }
+                },
+                onclose: function() {
+                    console.log('Payment modal closed');
+                },
+            });
+        }
+    </script>
+</body>
+</html>
