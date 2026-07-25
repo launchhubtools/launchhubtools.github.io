@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LaunchHubTools - Crowdfunding Promotion Tools</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <span>🚀 LaunchHubTools</span>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="#tools">Tools</a>
+                <a href="#reviews">Reviews</a>
+                <a href="cart.html" class="cart-icon">🛒 <span id="cartCount">0</span></a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Launch Your Crowdfunding Campaign to Success</h1>
+            <p>Get real backers for your Kickstarter & Indiegogo projects with our proven promotion tools</p>
+        </div>
+    </section>
+
+    <section id="tools" class="tools-section">
+        <div class="container">
+            <h1>Choose Your Promotion Package</h1>
+            <p>Select the perfect tool package for your crowdfunding campaign</p>
+
+            <div class="tools-grid">
+                <!-- Tool 1: Starter Launch -->
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <h2>🚀 Starter Launch</h2>
+                        <div class="price-badge">$1,200</div>
+                    </div>
+                    <div class="tool-body">
+                        <h3>1,000 Real Backers</h3>
+                        <div class="benefits">
+                            <h4>Benefits:</h4>
+                            <ul>
+                                <li>✅ 1,000 verified backers guaranteed</li>
+                                <li>✅ Email marketing campaign</li>
+                                <li>✅ Social media promotion</li>
+                                <li>✅ Basic analytics dashboard</li>
+                            </ul>
+                        </div>
+                        <button class="btn-add-cart" onclick="addToCart(1, 'Starter Launch', 1200)">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Tool 2: Growth Booster -->
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <h2>📈 Growth Booster</h2>
+                        <div class="price-badge">$2,500</div>
+                    </div>
+                    <div class="tool-body">
+                        <h3>2,500 Real Backers</h3>
+                        <div class="benefits">
+                            <h4>Benefits:</h4>
+                            <ul>
+                                <li>✅ 2,500 verified backers guaranteed</li>
+                                <li>✅ Advanced email marketing</li>
+                                <li>✅ Influencer partnerships</li>
+                                <li>✅ PR distribution</li>
+                            </ul>
+                        </div>
+                        <button class="btn-add-cart" onclick="addToCart(2, 'Growth Booster', 2500)">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Tool 3: Premium Pro -->
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <h2>💎 Premium Pro</h2>
+                        <div class="price-badge">$3,660</div>
+                    </div>
+                    <div class="tool-body">
+                        <h3>3,000 Real Backers</h3>
+                        <div class="benefits">
+                            <h4>Benefits:</h4>
+                            <ul>
+                                <li>✅ 3,000 verified backers guaranteed</li>
+                                <li>✅ Full marketing suite</li>
+                                <li>✅ 10+ influencer partnerships</li>
+                                <li>✅ Dedicated marketing expert</li>
+                            </ul>
+                        </div>
+                        <button class="btn-add-cart" onclick="addToCart(3, 'Premium Pro', 3660)">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Tool 4: Elite Package -->
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <h2>👑 Elite Package</h2>
+                        <div class="price-badge">$6,500</div>
+                    </div>
+                    <div class="tool-body">
+                        <h3>5,000 Real Backers</h3>
+                        <div class="benefits">
+                            <h4>Benefits:</h4>
+                            <ul>
+                                <li>✅ 5,000 verified backers guaranteed</li>
+                                <li>✅ Multi-channel marketing</li>
+                                <li>✅ 25+ influencer partnerships</li>
+                                <li>✅ Global PR campaign</li>
+                            </ul>
+                        </div>
+                        <button class="btn-add-cart" onclick="addToCart(4, 'Elite Package', 6500)">Add to Cart</button>
+                    </div>
+                </div>
+
+                <!-- Tool 5: Ultimate Package -->
+                <div class="tool-card">
+                    <div class="tool-header">
+                        <h2>🚀 Ultimate Package</h2>
+                        <div class="price-badge">$8,000</div>
+                    </div>
+                    <div class="tool-body">
+                        <h3>20,000 Real Backers</h3>
+                        <div class="benefits">
+                            <h4>Benefits:</h4>
+                            <ul>
+                                <li>✅ 20,000 verified backers guaranteed</li>
+                                <li>✅ Full-scale marketing campaign</li>
+                                <li>✅ 50+ top influencer partnerships</li>
+                                <li>✅ Senior marketing executives</li>
+                            </ul>
+                        </div>
+                        <button class="btn-add-cart" onclick="addToCart(5, 'Ultimate Package', 8000)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="reviews" class="reviews">
+        <div class="container">
+            <h2>What Our Clients Say</h2>
+            <div class="review-grid">
+                <div class="review-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"Immediately I bought the Growth Booster tools, I was connected to an expert who managed everything. I got 2,500+ backers in just 2 weeks!"</p>
+                    <h4>- Sarah Johnson</h4>
+                    <p class="campaign">TechGadget Pro on Kickstarter</p>
+                </div>
+                <div class="review-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"The Premium Pro package is incredible! The expert team handled my campaign professionally. I reached 3,000 backers!"</p>
+                    <h4>- Michael Chen</h4>
+                    <p class="campaign">EcoSmart Home on Indiegogo</p>
+                </div>
+                <div class="review-card">
+                    <div class="stars">⭐⭐⭐⭐⭐</div>
+                    <p>"After purchasing the Starter Launch, I was assigned an expert who guided me through the entire process. Got 1,000+ real backers!"</p>
+                    <h4>- Emily Rodriguez</h4>
+                    <p class="campaign">Artisan Crafts on Kickstarter</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>🚀 LaunchHubTools</h3>
+                    <p>Your trusted partner for crowdfunding success</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>📧 hello@launchhubtools.com</p>
+                    <p>🐦 @launchhubtools</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="index.html">Home</a>
+                    <a href="#tools">Tools</a>
+                    <a href="#reviews">Reviews</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 LaunchHubTools. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="cart.js"></script>
+</body>
+</html>
